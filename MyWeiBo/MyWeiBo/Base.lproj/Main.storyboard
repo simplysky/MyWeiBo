@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="-546.5" y="642.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--首页-->
         <scene sceneID="z6u-9V-Tl0">
             <objects>
-                <tableViewController id="2Bq-p8-EZF" sceneMemberID="viewController">
+                <tableViewController id="2Bq-p8-EZF" customClass="ZWMainTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tAr-gH-ByX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
                             <outlet property="delegate" destination="2Bq-p8-EZF" id="Hn5-Bq-uyV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="91t-iF-pgr"/>
+                    <navigationItem key="navigationItem" title="首页" id="91t-iF-pgr" colorLabel="IBBuiltInLabel-Orange"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEi-NA-u6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
