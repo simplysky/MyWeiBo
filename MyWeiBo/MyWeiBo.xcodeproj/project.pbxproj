@@ -26,6 +26,15 @@
 		E86038701C848BD700602AB8 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E86038651C848BD700602AB8 /* AFURLRequestSerialization.m */; };
 		E86038711C848BD700602AB8 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E86038671C848BD700602AB8 /* AFURLResponseSerialization.m */; };
 		E86038721C848BD700602AB8 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E86038691C848BD700602AB8 /* AFURLSessionManager.m */; };
+		E87DFA2D1C856B4C00490F34 /* OAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DFA2C1C856B4C00490F34 /* OAuthWebViewController.m */; };
+		E88133271C8547F9005BAC52 /* ZWNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E88133261C8547F9005BAC52 /* ZWNetworkTool.m */; };
+		E8E296AC1C8586A800545B23 /* ZWUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296AB1C8586A800545B23 /* ZWUserModel.m */; };
+		E8E296AF1C858E5C00545B23 /* ZWLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296AE1C858E5C00545B23 /* ZWLocationModel.m */; };
+		E8E296B21C85911E00545B23 /* ZWCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296B11C85911E00545B23 /* ZWCommentModel.m */; };
+		E8E296B51C85939D00545B23 /* ZWPrivacyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296B41C85939D00545B23 /* ZWPrivacyModel.m */; };
+		E8E296B81C8594C300545B23 /* ZWRemindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296B71C8594C300545B23 /* ZWRemindModel.m */; };
+		E8E296BB1C8596E100545B23 /* ZWUrlShortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296BA1C8596E100545B23 /* ZWUrlShortModel.m */; };
+		E8E296BE1C85985200545B23 /* ZWStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E296BD1C85985200545B23 /* ZWStatusModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +93,24 @@
 		E86038671C848BD700602AB8 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		E86038681C848BD700602AB8 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		E86038691C848BD700602AB8 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		E87DFA2B1C856B4C00490F34 /* OAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthWebViewController.h; sourceTree = "<group>"; };
+		E87DFA2C1C856B4C00490F34 /* OAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthWebViewController.m; sourceTree = "<group>"; };
+		E88133251C8547F9005BAC52 /* ZWNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWNetworkTool.h; sourceTree = "<group>"; };
+		E88133261C8547F9005BAC52 /* ZWNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWNetworkTool.m; sourceTree = "<group>"; };
+		E8E296AA1C8586A800545B23 /* ZWUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWUserModel.h; sourceTree = "<group>"; };
+		E8E296AB1C8586A800545B23 /* ZWUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWUserModel.m; sourceTree = "<group>"; };
+		E8E296AD1C858E5C00545B23 /* ZWLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWLocationModel.h; sourceTree = "<group>"; };
+		E8E296AE1C858E5C00545B23 /* ZWLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWLocationModel.m; sourceTree = "<group>"; };
+		E8E296B01C85911E00545B23 /* ZWCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWCommentModel.h; sourceTree = "<group>"; };
+		E8E296B11C85911E00545B23 /* ZWCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWCommentModel.m; sourceTree = "<group>"; };
+		E8E296B31C85939D00545B23 /* ZWPrivacyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPrivacyModel.h; sourceTree = "<group>"; };
+		E8E296B41C85939D00545B23 /* ZWPrivacyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPrivacyModel.m; sourceTree = "<group>"; };
+		E8E296B61C8594C300545B23 /* ZWRemindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWRemindModel.h; sourceTree = "<group>"; };
+		E8E296B71C8594C300545B23 /* ZWRemindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWRemindModel.m; sourceTree = "<group>"; };
+		E8E296B91C8596E100545B23 /* ZWUrlShortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWUrlShortModel.h; sourceTree = "<group>"; };
+		E8E296BA1C8596E100545B23 /* ZWUrlShortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWUrlShortModel.m; sourceTree = "<group>"; };
+		E8E296BC1C85985200545B23 /* ZWStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWStatusModel.h; sourceTree = "<group>"; };
+		E8E296BD1C85985200545B23 /* ZWStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWStatusModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +173,8 @@
 				E82BB6E41C84283A00911AC8 /* LaunchScreen.storyboard */,
 				E82BB6E71C84283A00911AC8 /* Info.plist */,
 				E82BB6D31C84283A00911AC8 /* Supporting Files */,
+				E87DFA2B1C856B4C00490F34 /* OAuthWebViewController.h */,
+				E87DFA2C1C856B4C00490F34 /* OAuthWebViewController.m */,
 			);
 			path = MyWeiBo;
 			sourceTree = "<group>";
@@ -232,6 +261,8 @@
 		E86038731C848E0800602AB8 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				E88133251C8547F9005BAC52 /* ZWNetworkTool.h */,
+				E88133261C8547F9005BAC52 /* ZWNetworkTool.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -239,6 +270,20 @@
 		E86038741C848E2200602AB8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				E8E296AA1C8586A800545B23 /* ZWUserModel.h */,
+				E8E296AB1C8586A800545B23 /* ZWUserModel.m */,
+				E8E296AD1C858E5C00545B23 /* ZWLocationModel.h */,
+				E8E296AE1C858E5C00545B23 /* ZWLocationModel.m */,
+				E8E296B01C85911E00545B23 /* ZWCommentModel.h */,
+				E8E296B11C85911E00545B23 /* ZWCommentModel.m */,
+				E8E296B31C85939D00545B23 /* ZWPrivacyModel.h */,
+				E8E296B41C85939D00545B23 /* ZWPrivacyModel.m */,
+				E8E296B61C8594C300545B23 /* ZWRemindModel.h */,
+				E8E296B71C8594C300545B23 /* ZWRemindModel.m */,
+				E8E296B91C8596E100545B23 /* ZWUrlShortModel.h */,
+				E8E296BA1C8596E100545B23 /* ZWUrlShortModel.m */,
+				E8E296BC1C85985200545B23 /* ZWStatusModel.h */,
+				E8E296BD1C85985200545B23 /* ZWStatusModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -379,17 +424,26 @@
 			files = (
 				E82BB6D81C84283A00911AC8 /* AppDelegate.m in Sources */,
 				E860386E1C848BD700602AB8 /* AFSecurityPolicy.m in Sources */,
+				E8E296B21C85911E00545B23 /* ZWCommentModel.m in Sources */,
 				E82BB6D51C84283A00911AC8 /* main.m in Sources */,
+				E8E296BB1C8596E100545B23 /* ZWUrlShortModel.m in Sources */,
 				E860386B1C848BD700602AB8 /* AFHTTPRequestOperationManager.m in Sources */,
 				E860386F1C848BD700602AB8 /* AFURLConnectionOperation.m in Sources */,
 				E860386A1C848BD700602AB8 /* AFHTTPRequestOperation.m in Sources */,
 				E860384F1C8481D400602AB8 /* ZWMainTableViewCell.m in Sources */,
+				E8E296B51C85939D00545B23 /* ZWPrivacyModel.m in Sources */,
+				E88133271C8547F9005BAC52 /* ZWNetworkTool.m in Sources */,
 				E86038701C848BD700602AB8 /* AFURLRequestSerialization.m in Sources */,
+				E8E296BE1C85985200545B23 /* ZWStatusModel.m in Sources */,
+				E8E296AC1C8586A800545B23 /* ZWUserModel.m in Sources */,
 				E860386C1C848BD700602AB8 /* AFHTTPSessionManager.m in Sources */,
 				E860386D1C848BD700602AB8 /* AFNetworkReachabilityManager.m in Sources */,
 				E86038711C848BD700602AB8 /* AFURLResponseSerialization.m in Sources */,
+				E8E296B81C8594C300545B23 /* ZWRemindModel.m in Sources */,
 				E86038721C848BD700602AB8 /* AFURLSessionManager.m in Sources */,
+				E87DFA2D1C856B4C00490F34 /* OAuthWebViewController.m in Sources */,
 				E86038541C84829000602AB8 /* ZWMainTableViewController.m in Sources */,
+				E8E296AF1C858E5C00545B23 /* ZWLocationModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyWeiBo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZW.MyWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyWeiBo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZW.MyWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
