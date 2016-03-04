@@ -31,6 +31,7 @@
 		E87441F81C87EF4C00801622 /* ZWDetailTableViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = E87441F71C87EF4C00801622 /* ZWDetailTableViewControler.m */; };
 		E87DFA2D1C856B4C00490F34 /* OAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DFA2C1C856B4C00490F34 /* OAuthWebViewController.m */; };
 		E88133271C8547F9005BAC52 /* ZWNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E88133261C8547F9005BAC52 /* ZWNetworkTool.m */; };
+		E886346C1C895AF3003ABA3E /* ZWCommentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E886346B1C895AF3003ABA3E /* ZWCommentsModel.m */; };
 		E8A5D5011C892D7300ED619F /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D4D71C892D7300ED619F /* MJRefreshAutoFooter.m */; };
 		E8A5D5021C892D7300ED619F /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D4D91C892D7300ED619F /* MJRefreshBackFooter.m */; };
 		E8A5D5031C892D7300ED619F /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D4DB1C892D7300ED619F /* MJRefreshComponent.m */; };
@@ -50,6 +51,7 @@
 		E8A5D5111C892D7300ED619F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D4FC1C892D7300ED619F /* UIScrollView+MJExtension.m */; };
 		E8A5D5121C892D7300ED619F /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D4FE1C892D7300ED619F /* UIScrollView+MJRefresh.m */; };
 		E8A5D5131C892D7300ED619F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D5001C892D7300ED619F /* UIView+MJExtension.m */; };
+		E8A5D5161C89325500ED619F /* ZWStatusesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5D5151C89325500ED619F /* ZWStatusesModel.m */; };
 		E8D7EE8E1C8827F900535391 /* ZWDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D7EE8C1C8827F900535391 /* ZWDetailTableViewCell.m */; };
 		E8D7EE8F1C8827F900535391 /* ZWDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D7EE8D1C8827F900535391 /* ZWDetailTableViewCell.xib */; };
 		E8E7FBBC1C85DB8B002E574A /* ZWMainTabBarControler.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E7FBBB1C85DB8B002E574A /* ZWMainTabBarControler.m */; };
@@ -122,6 +124,8 @@
 		E87DFA2C1C856B4C00490F34 /* OAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthWebViewController.m; sourceTree = "<group>"; };
 		E88133251C8547F9005BAC52 /* ZWNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWNetworkTool.h; sourceTree = "<group>"; };
 		E88133261C8547F9005BAC52 /* ZWNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWNetworkTool.m; sourceTree = "<group>"; };
+		E886346A1C895AF3003ABA3E /* ZWCommentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWCommentsModel.h; sourceTree = "<group>"; };
+		E886346B1C895AF3003ABA3E /* ZWCommentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWCommentsModel.m; sourceTree = "<group>"; };
 		E8A5D4D61C892D7300ED619F /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		E8A5D4D71C892D7300ED619F /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		E8A5D4D81C892D7300ED619F /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		E8A5D4FE1C892D7300ED619F /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		E8A5D4FF1C892D7300ED619F /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		E8A5D5001C892D7300ED619F /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		E8A5D5141C89325500ED619F /* ZWStatusesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWStatusesModel.h; sourceTree = "<group>"; };
+		E8A5D5151C89325500ED619F /* ZWStatusesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWStatusesModel.m; sourceTree = "<group>"; };
 		E8D7EE8B1C8827F900535391 /* ZWDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDetailTableViewCell.h; sourceTree = "<group>"; };
 		E8D7EE8C1C8827F900535391 /* ZWDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWDetailTableViewCell.m; sourceTree = "<group>"; };
 		E8D7EE8D1C8827F900535391 /* ZWDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -279,9 +285,9 @@
 			isa = PBXGroup;
 			children = (
 				E801972D1C88021E008EAC16 /* ZWMainTabBarControler.h */,
+				E8E7FBBB1C85DB8B002E574A /* ZWMainTabBarControler.m */,
 				E86038521C84829000602AB8 /* ZWMainTableViewController.h */,
 				E86038531C84829000602AB8 /* ZWMainTableViewController.m */,
-				E8E7FBBB1C85DB8B002E574A /* ZWMainTabBarControler.m */,
 				E87441F61C87EF4C00801622 /* ZWDetailTableViewControler.h */,
 				E87441F71C87EF4C00801622 /* ZWDetailTableViewControler.m */,
 			);
@@ -335,6 +341,10 @@
 		E86038741C848E2200602AB8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				E8A5D5141C89325500ED619F /* ZWStatusesModel.h */,
+				E8A5D5151C89325500ED619F /* ZWStatusesModel.m */,
+				E886346A1C895AF3003ABA3E /* ZWCommentsModel.h */,
+				E886346B1C895AF3003ABA3E /* ZWCommentsModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -599,11 +609,13 @@
 				E88133271C8547F9005BAC52 /* ZWNetworkTool.m in Sources */,
 				E86038701C848BD700602AB8 /* AFURLRequestSerialization.m in Sources */,
 				E860386C1C848BD700602AB8 /* AFHTTPSessionManager.m in Sources */,
+				E8A5D5161C89325500ED619F /* ZWStatusesModel.m in Sources */,
 				E860386D1C848BD700602AB8 /* AFNetworkReachabilityManager.m in Sources */,
 				E8A5D50D1C892D7300ED619F /* MJRefreshNormalHeader.m in Sources */,
 				E8A5D5071C892D7300ED619F /* MJRefreshAutoNormalFooter.m in Sources */,
 				E8A5D5131C892D7300ED619F /* UIView+MJExtension.m in Sources */,
 				E87441F81C87EF4C00801622 /* ZWDetailTableViewControler.m in Sources */,
+				E886346C1C895AF3003ABA3E /* ZWCommentsModel.m in Sources */,
 				E86038711C848BD700602AB8 /* AFURLResponseSerialization.m in Sources */,
 				E8A5D5011C892D7300ED619F /* MJRefreshAutoFooter.m in Sources */,
 				E8A5D50B1C892D7300ED619F /* MJRefreshBackStateFooter.m in Sources */,

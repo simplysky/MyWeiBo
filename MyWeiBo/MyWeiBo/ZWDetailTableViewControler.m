@@ -11,16 +11,28 @@
 #import "CommonInfo.h"
 #import "ZWCommentsTableViewCell.h"
 #import "ZWMainTableViewCell.h"
+#import "MJRefresh.h"
 
 @implementation ZWDetailTableViewControler
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.page = 1 ;
-    //self.weiboID = @"3948936492485702";
-    [self LoadData];
     
+    [super viewDidLoad];
+    if(self.commentsGroup == nil)
+    {
+        self.commentsGroup = [NSMutableArray new];
+    }
+    self.page = 1 ;
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    // 设置了底部inset
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
+    // 忽略掉底部inset
+    self.tableView.mj_footer.ignoredScrollViewContentInsetBottom = 30;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -34,42 +46,21 @@
     {
         return 1;
     }
-    return [[self.comments objectForKey:@"comments"] count];
+    return self.commentsGroup.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        static NSString *maincell =  @"MainCell";
-        ZWMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:maincell];
-        if(cell == nil){
-            //cell = [[ZWMainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:maincell];
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ZWMainTableViewCell" owner:nil options:nil] firstObject];
-        }
-        cell.content.text = self.weiboText;
-        cell.name.text = self.username;
-        cell.desc.text = self.weiboDesc;
-        [cell.header setImage:self.userHeaer];
+        ZWMainTableViewCell * cell = [[ZWMainTableViewCell alloc] initCell:tableView];
+        [cell setCellData:self.statuses];
         return cell;
     }
     else
     {
-        static NSString *commentcell =  @"CommentCell";
-        ZWCommentsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:commentcell];
-        if( cell == nil)
-        {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"CommentsTableViewCell" owner:nil options:nil] firstObject];
-        }
+        ZWCommentsTableViewCell * cell = [[ZWCommentsTableViewCell alloc]initCell:tableView];
         
-        NSDictionary *key = [[self.comments objectForKey:@"comments"] objectAtIndex:indexPath.row];
-        
-        cell.lblComment.text = [key objectForKey:@"text"];
-        NSDictionary *user = [key objectForKey:@"user"];
-        NSString *URL = [[key objectForKey:@"user"] objectForKey:@"profile_image_url"];
-        NSData *data = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:URL]];
-        cell.header.image = [[UIImage alloc] initWithData:data];
-        [cell.btnName setTitle:[user objectForKey:@"screen_name"] forState:UIControlStateNormal];
-        cell.lblDesc.text = [user objectForKey:@"location"];
+        [cell setCellData:self.commentsGroup[indexPath.row]];
         
         return cell;
     }
@@ -94,10 +85,9 @@
     
 }
 
--(void)LoadData
+-(void)loadMoreData
 {
-    NSString *str=[NSString stringWithFormat:@"%@comments/show.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=30&page=%d&id=%@",BASE_URL,self.page,self.weiboID];
-    self.page++;
+    NSString *str=[NSString stringWithFormat:@"%@comments/show.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=30&page=%d&id=%@",BASE_URL,self.page,self.statuses.ID];
     
     NSLog(@"%@",str);
     
@@ -115,16 +105,22 @@
         
         NSMutableDictionary *dict=[NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
         //NSLog(@"获取到的数据为：%@",dict);
-        if(self.comments == nil)
-        {
-            self.comments = dict;
+        NSDictionary *key;
+        for (key in [dict objectForKey:@"comments"]) {
+            ZWCommentsModel *comments = [ZWCommentsModel new];
+            comments.ID = [key objectForKey:@"id"];
+            comments.text = [key objectForKey:@"text"];
+            comments.creat_at = [key objectForKey:@"creat_at"];
+            comments.source = [key objectForKey:@"source"];
+            comments.location = [[key objectForKey:@"user"] objectForKey:@"location"];
+            comments.username = [[key objectForKey:@"user"] objectForKey:@"screen_name"];
+            NSString *URL = [[key objectForKey:@"user"] objectForKey:@"profile_image_url"];
+            NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:URL]];
+            UIImage *image = [UIImage imageWithData:imageData];
+            comments.usericon = image;
+            [self.commentsGroup addObject:comments];
         }
-        else
-        {
-            [self.comments addEntriesFromDictionary:dict];
-        }
-        [self.tableView reloadData];
-        
+        self.page++;
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -135,6 +131,9 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     [queue addOperation:operation];
+    
+    [self.tableView reloadData];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @interface ZWMainTableViewController : UITableViewController
 
-@property(nonatomic,copy) NSMutableDictionary *dic;
+@property(nonatomic,strong) NSMutableArray *statuesGroup;
 
 @property(nonatomic,assign) int page;
 

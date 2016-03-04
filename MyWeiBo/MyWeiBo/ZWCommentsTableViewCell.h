@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZWCommentsModel.h"
 
 @interface ZWCommentsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *header;
@@ -14,5 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnName;
 @property (weak, nonatomic) IBOutlet UILabel *lblDesc;
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
+
+-(instancetype)initCell:(UITableView *)tableView;
+
+-(void)setCellData:(ZWCommentsModel *)comments;
 
 @end
