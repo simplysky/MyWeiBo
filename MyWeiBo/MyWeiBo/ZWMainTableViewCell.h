@@ -10,5 +10,9 @@
 
 @interface ZWMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *header;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *desc;
+
+@property (weak, nonatomic) IBOutlet UILabel *content;
 
 @end

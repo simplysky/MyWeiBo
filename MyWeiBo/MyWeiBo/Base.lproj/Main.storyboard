@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <scenes>
@@ -18,6 +19,7 @@
                     <connections>
                         <segue destination="rv1-pJ-gpE" kind="relationship" relationship="viewControllers" id="LUc-m8-1E3"/>
                         <segue destination="2fM-4f-KaT" kind="relationship" relationship="viewControllers" id="8ez-sq-MFy"/>
+                        <segue destination="xAl-er-RBK" kind="relationship" relationship="viewControllers" id="3GR-DL-GWL"/>
                         <segue destination="uVf-ew-EkM" kind="relationship" relationship="viewControllers" id="hAQ-tc-EJE"/>
                         <segue destination="r4l-KL-Glv" kind="relationship" relationship="viewControllers" id="lZR-Zg-nGp"/>
                     </connections>
@@ -26,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-86.5" y="-214.5"/>
         </scene>
-        <!--Item-->
+        <!--我-->
         <scene sceneID="Gdh-9K-lmw">
             <objects>
                 <viewController id="r4l-KL-Glv" customClass="OAuthWebViewController" sceneMemberID="viewController">
@@ -45,7 +47,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Z7j-T5-vJQ"/>
+                    <tabBarItem key="tabBarItem" title="我" image="tabbar_profile" id="Z7j-T5-vJQ"/>
                     <connections>
                         <outlet property="webView" destination="EVo-1D-Wne" id="cpx-Ja-zJ2"/>
                     </connections>
@@ -58,7 +60,7 @@
         <scene sceneID="9Za-uE-eM4">
             <objects>
                 <navigationController id="rv1-pJ-gpE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="P1l-yA-1ro"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="tabbar_home" id="P1l-yA-1ro"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Ea-Up-efr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -102,11 +104,40 @@
             </objects>
             <point key="canvasLocation" x="-546.5" y="1440.5"/>
         </scene>
-        <!--Item-->
+        <!--Detail Table View Controler-->
+        <scene sceneID="Bbm-qy-8Jg">
+            <objects>
+                <tableViewController id="Ipf-ay-F0i" customClass="ZWDetailTableViewControler" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rgw-dL-AIo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8J9-EH-pSF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8J9-EH-pSF" id="jYk-D1-1ZW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ipf-ay-F0i" id="CKT-Py-nKl"/>
+                            <outlet property="delegate" destination="Ipf-ay-F0i" id="GEt-qp-fNU"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pR-gy-og0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-86.5" y="1854.5"/>
+        </scene>
+        <!--消息-->
         <scene sceneID="kLo-ie-R0x">
             <objects>
                 <navigationController id="2fM-4f-KaT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oKM-HI-vQ1"/>
+                    <tabBarItem key="tabBarItem" title="消息" image="tabbar_message_center" id="oKM-HI-vQ1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sjE-1C-JZo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -117,11 +148,11 @@
             </objects>
             <point key="canvasLocation" x="-86.5" y="642.5"/>
         </scene>
-        <!--Item-->
+        <!--发现-->
         <scene sceneID="LOa-IR-HPV">
             <objects>
                 <navigationController id="uVf-ew-EkM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IMd-n6-rnC"/>
+                    <tabBarItem key="tabBarItem" title="发现" image="tabbar_discover" id="IMd-n6-rnC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y3A-9a-Ocy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -130,7 +161,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aC-BS-ZsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377.5" y="642.5"/>
+            <point key="canvasLocation" x="877.5" y="648.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ru7-AO-tB4">
+            <objects>
+                <viewController id="xAl-er-RBK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qiL-D7-rj1"/>
+                        <viewControllerLayoutGuide type="bottom" id="krE-T2-L6g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yZ6-H5-dhI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_compose_background_icon_add" id="I1B-4x-Pia"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLA-Ml-VmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349.5" y="642.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar_compose_background_icon_add" width="25" height="25"/>
+        <image name="tabbar_discover" width="30" height="30"/>
+        <image name="tabbar_home" width="30" height="30"/>
+        <image name="tabbar_message_center" width="30" height="30"/>
+        <image name="tabbar_profile" width="30" height="30"/>
+    </resources>
 </document>

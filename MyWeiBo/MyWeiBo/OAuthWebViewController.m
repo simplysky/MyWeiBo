@@ -15,8 +15,8 @@
 {
     [super viewWillAppear:animated];
     
-    NSString *url = @"https://api.weibo.com/oauth2/authorize?client_id=649634753&redirect_uri=https://api.weibo.com/oauth2/default.html&response_type=code&display=mobile";
-    //NSString *url = @"http://m.baidu.com";
+    //NSString *url = @"https://api.weibo.com/oauth2/authorize?client_id=649634753&redirect_uri=https://api.weibo.com/oauth2/default.html&response_type=code&display=mobile";
+    NSString *url = @"http://m.baidu.com";
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [self.webView setDelegate:self];

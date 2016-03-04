@@ -9,6 +9,9 @@
 #import "ZWMainTableViewController.h"
 #import "ZWMainTableViewCell.h"
 #import "AFHTTPRequestOperation.h"
+#import "CommonInfo.h"
+#import "ZWDetailTableViewControler.h"
+#import "MJRefresh.h"
 
 @interface ZWMainTableViewController ()
 
@@ -18,14 +21,75 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loaData];
+    self.page =1;
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self loadNewData];
+            
+        });
+    }];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    // 设置了底部inset
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
+    // 忽略掉底部inset
+    self.tableView.mj_footer.ignoredScrollViewContentInsetBottom = 30;
 }
+
+
+#pragma mark -上拉刷新 与 下拉加载
+-(void)loadNewData
+{
+    
+}
+
+-(void)loadMoreData
+{
+    NSString *str=[NSString stringWithFormat:@"%@statuses/friends_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=30&page=%d",BASE_URL,self.page];
+    self.page++;
+    
+    NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *html = operation.responseString;
+        
+        NSData* data=[html dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSMutableDictionary *dict=[NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+        //NSLog(@"获取到的数据为：%@",dict);
+        if(self.dic == nil)
+        {
+            self.dic = dict;
+        }
+        else
+        {
+            [self.dic addEntriesFromDictionary:dict];
+        }
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+        
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"发生错误！%@",error);
+        
+    }];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [queue addOperation:operation];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -35,7 +99,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return [[self.dic objectForKey:@"statuses"] count] ;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -45,13 +109,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+
     static NSString *maincell = @"MainCell";
     ZWMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:maincell];
     if(cell == nil){
-        //cell = [[ZWMainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:maincell];
+    //cell = [[ZWMainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:maincell];
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ZWMainTableViewCell" owner:nil options:nil] firstObject];
     }
     cell.header.image = [UIImage imageNamed:@"xiaoduan.png"];
+    NSDictionary *key = [[self.dic objectForKey:@"statuses"] objectAtIndex:indexPath.section];
+    cell.content.text = [key objectForKey:@"text"];
+    cell.name.text = [[key objectForKey:@"user"] objectForKey:@"screen_name"];
+    cell.desc.text = [[key objectForKey:@"user"] objectForKey:@"location"];
+
+    NSString *URL = [[key objectForKey:@"user"] objectForKey:@"profile_image_url"];
+    NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:URL]];
+    UIImage *image=[[UIImage alloc] initWithData:imageData];
+    [cell.header setImage:image];
     return cell;
     
 }
@@ -61,7 +135,7 @@
     return 120;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section:(NSInteger)section
 {
     return 5;
 }
@@ -86,8 +160,8 @@
 //    }];
 //    
 //    [operation1 start];
-    
-    NSString *str=[NSString stringWithFormat:@"https://api.weibo.com/2/statuses/public_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=1"];
+    NSString *str=[NSString stringWithFormat:@"%@statuses/friends_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=30&page=%d",BASE_URL,self.page];
+    self.page++;
     
     NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
@@ -101,8 +175,18 @@
         
         NSData* data=[html dataUsingEncoding:NSUTF8StringEncoding];
         
-        id dict=[NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"获取到的数据为：%@",dict);
+        NSMutableDictionary *dict=[NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+        //NSLog(@"获取到的数据为：%@",dict);
+        if(self.dic == nil)
+        {
+            self.dic = dict;
+        }
+        else
+        {
+            [self.dic addEntriesFromDictionary:dict];
+        }
+        [self.tableView reloadData];
+        
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -115,48 +199,35 @@
     [queue addOperation:operation];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == [[self.dic objectForKey:@"statuses"] count]) {
+        //”加载更多“单元格事件
+        [self performSelectorInBackground:@selector(loaData) withObject:nil];
+        //[loadMoreCell setHighlighted:NO];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        return;
+    }
+    else
+    {
+        ZWDetailTableViewControler *detail = [[ZWDetailTableViewControler alloc] init];
+        NSInteger x = indexPath.section;
+        NSDictionary *key = [[self.dic objectForKey:@"statuses"] objectAtIndex:x];
+        detail.weiboID = [key objectForKey:@"id"];
+        detail.weiboText = [key objectForKey:@"text"];
+        detail.username = [[key objectForKey:@"user"] objectForKey:@"screen_name"];
+        detail.weiboDesc= [[key objectForKey:@"user"] objectForKey:@"location"];
+        
+        NSString *URL = [[key objectForKey:@"user"] objectForKey:@"profile_image_url"];
+        NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:URL]];
+        UIImage *image=[[UIImage alloc] initWithData:imageData];
+        detail.userHeaer = image;
+        [detail setTitle:@"微博正文"];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

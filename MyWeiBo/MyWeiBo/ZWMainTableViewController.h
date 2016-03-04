@@ -10,4 +10,8 @@
 
 @interface ZWMainTableViewController : UITableViewController
 
+@property(nonatomic,copy) NSMutableDictionary *dic;
+
+@property(nonatomic,assign) int page;
+
 @end
