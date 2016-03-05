@@ -33,6 +33,8 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
     // 忽略掉底部inset
     self.tableView.mj_footer.ignoredScrollViewContentInsetBottom = 30;
+    
+    [self loadMoreData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -72,11 +74,6 @@
         return 120;
     }
     return 80;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 5;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,7 +117,13 @@
             comments.usericon = image;
             [self.commentsGroup addObject:comments];
         }
-        self.page++;
+        if([[dict objectForKey:@"comments"] count] > 0)
+        {
+            self.page++;
+        }
+        
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -131,9 +134,6 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     [queue addOperation:operation];
-    
-    [self.tableView reloadData];
-    [self.tableView.mj_footer endRefreshing];
 }
 
 @end

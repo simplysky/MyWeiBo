@@ -41,6 +41,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
     // 忽略掉底部inset
     self.tableView.mj_footer.ignoredScrollViewContentInsetBottom = 30;
+    [self loadMoreData];
 }
 
 
@@ -128,7 +129,10 @@
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshing];
         }
-        self.page++;
+        if([[dict objectForKey:@"statuses"] count] > 0)
+        {
+            self.page++;
+        }
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"发生错误！%@",error);
