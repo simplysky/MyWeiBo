@@ -28,7 +28,11 @@
 //表态数
 @property(nonatomic,copy) NSString  *attitudes_count;
 //微博配图
-@property(nonatomic,copy) NSArray   *pic;
+@property(nonatomic,strong) NSDictionary   *pic;
+
+//根据内容计算所需高度
+@property (nonatomic,assign) CGFloat cellLabelHeight;
+
 
 
 

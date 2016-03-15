@@ -49,7 +49,7 @@
 -(void)loadNewData
 {
     NSString *firstID = [self.statuesGroup firstObject];
-    NSString *str=[NSString stringWithFormat:@"%@statuses/friends_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=100&page=%d&since_id=%@",BASE_URL,self.page,firstID];
+    NSString *str=[NSString stringWithFormat:@"%@statuses/friends_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=100&page=%d&since_id=%@&feature=1",BASE_URL,self.page,firstID];
     
     NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
@@ -66,7 +66,6 @@
         NSMutableDictionary *dict=[NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
         //NSLog(@"获取到的数据为：%@",dict);
         NSDictionary *key;
-        NSLog(@"%lu",[[dict objectForKey:@"statuses"] count]);
         for (key in [dict objectForKey:@"statuses"]) {
             ZWStatusesModel *statusesMode = [ZWStatusesModel new];
             statusesMode.ID = [key objectForKey:@"id"];
@@ -78,6 +77,8 @@
             NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:URL]];
             UIImage *image=[[UIImage alloc] initWithData:imageData];
             statusesMode.userIcon = image;
+            
+            statusesMode.pic =[key objectForKey:@"pic_urls"];
             [self.statuesGroup insertObject:statusesMode atIndex:0];
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
@@ -96,8 +97,8 @@
 
 -(void)loadMoreData
 {
-    NSString *str=[NSString stringWithFormat:@"%@statuses/friends_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=30&page=%d",BASE_URL,self.page];
-    NSLog(@"%@",str);
+    NSString *str=[NSString stringWithFormat:@"%@statuses/friends_timeline.json?access_token=2.008WiTjC0tfnxh39f60ed4e70Vfgeo&count=10&page=%d&feature=1",BASE_URL,self.page];
+    //NSLog(@"%@",str);
     
     NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
@@ -125,6 +126,8 @@
             NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:URL]];
             UIImage *image=[[UIImage alloc] initWithData:imageData];
             statusesMode.userIcon = image;
+            statusesMode.pic =[key objectForKey:@"pic_urls"];
+            
             [self.statuesGroup addObject:statusesMode];
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshing];
@@ -171,13 +174,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    ZWStatusesModel *model = self.statuesGroup[indexPath.section];
+    return model.cellLabelHeight;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 5;
-}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

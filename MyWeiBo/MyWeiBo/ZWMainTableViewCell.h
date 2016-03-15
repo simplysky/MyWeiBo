@@ -18,7 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *desc;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 
-@property(nonatomic,strong) ZWStatusesModel *statusesModel;
+
+@property(nonatomic,weak) ZWStatusesModel *statusesModel;
 
 -(instancetype)initCell:(UITableView *)tableView;
 
