@@ -10,4 +10,7 @@
 
 @interface ZWMainTabBarControler : UITabBarController
 
+/** 切换tab*/
+-(void)changeTabbarBtnWithNum:(NSNumber *)num;
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "ZWMainTableViewController.h"
-#import "ZWMainTableViewCell.h"
+#import "ZWStatusCell.h"
 #import "AFHTTPRequestOperation.h"
 #import "CommonInfo.h"
 #import "ZWDetailTableViewControler.h"
@@ -163,11 +163,17 @@
     return 1;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 5;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZWMainTableViewCell * cell = [[ZWMainTableViewCell alloc] initCell:tableView];
+    ZWStatusCell * cell = [[ZWStatusCell alloc] initCell:tableView];
     [cell setCellData:self.statuesGroup[indexPath.section]];
-    //NSLog(@"%@",cell.statusesModel.Content);
+    [cell ShowContent];
+    cell.delegate = self;
     return cell;
     
 }
@@ -178,8 +184,6 @@
     return model.cellLabelHeight;
 }
 
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -189,6 +193,42 @@
     [detail setTitle:@"微博正文"];
     
     [self.navigationController pushViewController:detail animated:YES];
+}
+
+#pragma mark -自定义Cell中的Delegate
+
+//转发
+-(void)didRetweetButtonClicked:(UIButton *)btnRetweet indexPath:(NSIndexPath *)indexpath
+{
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"AlertViewTest"
+                                                   message:@"message"
+                                                  delegate:self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"OtherBtn",@"nextBtn",nil];
+    [view show];
+    
+}
+
+//评论
+-(void)didCommentButtonClicked:(UIButton *)btnComment indexPath:(NSIndexPath *)indexpath
+{
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"AlertViewTest"
+                                                   message:@"message"
+                                                  delegate:self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"OtherBtn",nil];
+    [view show];
+}
+
+//点赞
+-(void)didLikeButtonClicked:(UIButton *)btnLike indexPath:(NSIndexPath *)indexpath
+{
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"AlertViewTest"
+                                                   message:@"message"
+                                                  delegate:self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"OtherBtn",nil];
+    [view show];
 }
 
 

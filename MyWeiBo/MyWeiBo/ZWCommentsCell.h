@@ -1,5 +1,5 @@
 //
-//  ZWCommentsTableViewCell.h
+//  ZWCommentsCell.h
 //  MyWeiBo
 //
 //  Created by simplysky on 16/3/3.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZWCommentsModel.h"
 
-@interface ZWCommentsTableViewCell : UITableViewCell
+@interface ZWCommentsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *header;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnName;

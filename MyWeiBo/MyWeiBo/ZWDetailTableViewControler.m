@@ -9,8 +9,8 @@
 #import "ZWDetailTableViewControler.h"
 #import "AFHTTPRequestOperation.h"
 #import "CommonInfo.h"
-#import "ZWCommentsTableViewCell.h"
-#import "ZWMainTableViewCell.h"
+#import "ZWCommentsCell.h"
+#import "ZWStatusCell.h"
 #import "MJRefresh.h"
 
 @implementation ZWDetailTableViewControler
@@ -54,13 +54,13 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        ZWMainTableViewCell * cell = [[ZWMainTableViewCell alloc] initCell:tableView];
+        ZWStatusCell * cell = [[ZWStatusCell alloc] initCell:tableView];
         [cell setCellData:self.statuses];
         return cell;
     }
     else
     {
-        ZWCommentsTableViewCell * cell = [[ZWCommentsTableViewCell alloc]initCell:tableView];
+        ZWCommentsCell * cell = [[ZWCommentsCell alloc]initCell:tableView];
         
         [cell setCellData:self.commentsGroup[indexPath.row]];
         
@@ -74,6 +74,18 @@
         return self.statuses.cellLabelHeight;
     }
     return 80;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if(section == 0)
+    {
+        return 10;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

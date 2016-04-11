@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZWStatusCell.h"
 
-@interface ZWMainTableViewController : UITableViewController
+@interface ZWMainTableViewController : UITableViewController<ZWStatusCellDelegate>
 
 @property(nonatomic,strong) NSMutableArray *statuesGroup;
 
