@@ -35,11 +35,17 @@
     if (!self.tabBar) {
         ZWMainTableViewController *vcHome = [[ZWMainTableViewController alloc] init];
         ZWProfileTableViewControler * vcProfile = [[ZWProfileTableViewControler alloc] init];
-        
+        UIViewController *vcMessage = [[UIViewController alloc] init];
+        UIViewController *vcDiscover = [[UIViewController alloc] init];
+        [vcHome setTitle:@"主页"];
+        [vcMessage setTitle:@"消息"];
+        [vcDiscover setTitle:@"发现"];
+        [vcProfile setTitle:@"我"];
         self.tabBar = [[ZWMainTabBarControler alloc] init];
-        self.tabBar.viewControllers = @[vcHome,vcProfile];
+        self.tabBar.view.bounds = [[UIScreen mainScreen] bounds];
+        self.tabBar.viewControllers = @[vcHome,vcMessage,vcDiscover,vcProfile];
         self.navi = [[ZWNavigationController alloc] initWithRootViewController:self.tabBar];
-        [self.navi setNavigationBarHidden:YES];
+        [self.navi setNavigationBarHidden:NO];
     }
     [self.window setRootViewController:self.navi];
 }

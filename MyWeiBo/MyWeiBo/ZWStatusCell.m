@@ -36,6 +36,8 @@
     self.name.text = self.statusesModel.userName;
     self.desc.text = self.statusesModel.location;
     [self.header setImage:self.statusesModel.userIcon];
+    self.header.layer.masksToBounds = YES;
+    self.header.layer.cornerRadius = 21;
     CGFloat height = 0.0;
     //设置高度
     //1、获取屏幕的宽度

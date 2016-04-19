@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -25,7 +26,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSw-u6-zcH">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSw-u6-zcH">
                         <rect key="frame" x="8" y="42" width="350" height="38"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,6 +36,10 @@
                         <rect key="frame" x="8" y="8" width="34" height="34"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="vSw-u6-zcH" firstAttribute="leading" secondItem="VaU-mg-FcR" secondAttribute="leadingMargin" id="4dg-BK-3LQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vSw-u6-zcH" secondAttribute="trailing" constant="2" id="WS7-IJ-W59"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnName" destination="Dj9-cS-2hE" id="jcn-QI-MN2"/>

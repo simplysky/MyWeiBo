@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZWUserHeaderViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController restorationIdentifier="UserHeader" id="Oi7-IT-gPI" customClass="ZWUserHeaderViewController">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="gg3-1L-6ma"/>
+                <viewControllerLayoutGuide type="bottom" id="aE9-uY-cJl"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="hwj-HG-S66">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="210"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zT-SN-brp">
+                        <rect key="frame" x="240" y="166" width="1" height="20"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-Oa-MjZ">
+                        <rect key="frame" x="161" y="161" width="71" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzl-c4-RKG">
+                        <rect key="frame" x="249" y="161" width="70" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-1n-1Ko">
+                        <rect key="frame" x="219" y="186" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDQ-Ix-huV">
+                        <rect key="frame" x="190" y="45" width="100" height="87"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiF-Ih-Dpp">
+                        <rect key="frame" x="200" y="140" width="80" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="iiF-Ih-Dpp" firstAttribute="centerX" secondItem="hwj-HG-S66" secondAttribute="centerX" id="2Ia-gS-rH9"/>
+                    <constraint firstItem="0zT-SN-brp" firstAttribute="leading" secondItem="kCl-Oa-MjZ" secondAttribute="trailing" constant="8" id="MhQ-Rw-p5W"/>
+                    <constraint firstItem="fzl-c4-RKG" firstAttribute="leading" secondItem="0zT-SN-brp" secondAttribute="trailing" constant="8" id="NAR-k1-iVr"/>
+                    <constraint firstItem="2Tt-1n-1Ko" firstAttribute="centerX" secondItem="hwj-HG-S66" secondAttribute="centerX" id="RQD-Yj-s6F"/>
+                    <constraint firstItem="LDQ-Ix-huV" firstAttribute="centerX" secondItem="hwj-HG-S66" secondAttribute="centerX" id="bm7-A0-E9R"/>
+                    <constraint firstItem="0zT-SN-brp" firstAttribute="centerX" secondItem="hwj-HG-S66" secondAttribute="centerX" id="m9X-Xx-rKa"/>
+                </constraints>
+            </view>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="480" height="210"/>
+            <point key="canvasLocation" x="476" y="54"/>
+        </viewController>
+    </objects>
+</document>

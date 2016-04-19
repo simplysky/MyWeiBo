@@ -7,6 +7,8 @@
 //
 
 #import "ZWProfileTableViewControler.h"
+#import "ZWUserInfoViewControler.h"
+
 
 @interface ZWProfileTableViewControler ()
 
@@ -16,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -55,7 +60,6 @@
         [icon drawInRect:imageRect];
         cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        //cell.imageView.image = [UIImage imageNamed:@"xiaoduan.png"];
         cell.textLabel.text = @"simplysky";
         cell.detailTextLabel.text = @"我的简介";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -94,14 +98,26 @@
     return 60;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+    {
+        ZWUserInfoViewControler *userInfo = [[ZWUserInfoViewControler alloc] init];
+        [self.navigationController pushViewController:userInfo animated:YES];
+    }
+    else
+    {
+        if (indexPath.row == 0) { //我的微博
+            
+        }
+        else if(indexPath.row == 1){//我的粉丝
+        
+        }
+        else if(indexPath.row == 2){//我的关注
+        
+        }
+    }
 }
-*/
+
 
 @end

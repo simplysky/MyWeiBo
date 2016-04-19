@@ -12,3 +12,5 @@
 #endif /* CommonInfo_h */
 
 #define BASE_URL @"https://api.weibo.com/2/"
+
+#define HTTPdefeatValue @"网络状态不好"
